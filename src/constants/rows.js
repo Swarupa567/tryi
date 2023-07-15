@@ -9,7 +9,8 @@ export const rows = [
         "mail":"swarupachowdaryp@gmail.com",
         "name":"Swarupa",
         "source":"booking.com",
-        "status": "Failed"
+        "status": "Failed",
+        
     },
     {
         "id":"2",

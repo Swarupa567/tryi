@@ -30,7 +30,20 @@ export const columns = [
         name:'Status',
         selector: rows => rows.status,
         sortable: true,
-       
+    //    cell: (row) => {
+    //     when: (row) => row.status === "Failed",
+    //     style = {backgroundColor:'red'}
+    //     // if(row.status === "Failed"){
+    //     //     style = {backgroundColor:'red'}
+    //     // }
+    // //     else if (row.status === "Waiting"){
+    // //         style = {
+    // //             backgroundColor:'yellow'
+    // //         }
+    // //     }
+    // //     else
+    // //      style= {backgroundColor: 'green'}
+    //    }
     },
     {
        name: 'Select',
