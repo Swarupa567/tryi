@@ -3,6 +3,8 @@ import DataTable from 'react-data-table-component';
 import {columns} from '../../constants/headers';
 import {rows} from '../../constants/rows';
 import { CSVLink } from "react-csv";
+import { Input, FormLabel, Select, FormControl, Button } from '@chakra-ui/react';
+import {DownloadIcon, SearchIcon} from '@chakra-ui/icons';
 
 interface rows {
   id: BigInteger,
@@ -11,7 +13,7 @@ interface rows {
   mail: string,
   name: string,
   source: string,
-  status: string,
+  status: string
 }
 
 function Table(){
@@ -27,14 +29,47 @@ function Table(){
     return(
       <>
       <div className="container mt-5">
-        <div className="text-end">
-        <CSVLink className="downloadbtn" filename="bookings.csv" data={rows} style={{float: 'right','backgroundColor': 'rgb(66 63 217)','color': 'white','padding': '5px','borderRadius': '10px','marginRight': '17px','marginTop': '3px'}}>
-        Export to CSV
+        <div className="text-end bg-white" style={{display:'flex',
+    borderRadius: '5px',
+    border:'2px solid #eeeeee',
+    padding: '5px',
+    margin: '7px',
+    paddingBottom:'11px',
+    justifyContent:'space-between'}}>
+        
+      <div className="">
+        <FormLabel>What are you Looking For?</FormLabel>
+      &nbsp;<Input type="search" placeholder="Search by Name"  variant="outline" onChange={handleFilter} style={{width:'98%'}}/>
+      </div>
+      <div className="" style={{width:"23%"}}>
+      <FormControl>
+  <FormLabel>Source</FormLabel>
+  <Select placeholder='Select Source'>
+    <option value="booking.com">Booking</option>
+    <option value="airbnb.com">Airbnb</option>
+    <option value="agoda.com">Agoda</option>
+  </Select>
+</FormControl>
+      </div>
+      <div className="" style={{width:"23%"}}>
+      <FormControl>
+  <FormLabel>Status</FormLabel>
+  <Select placeholder='Select Status'>
+    <option value="Failed">Failed</option>
+    <option value="Waiting">Waiting</option>
+    <option value="Paid">Paid</option>
+  </Select>
+</FormControl>
+      </div>
+      <div className="">
+  <Button style={{backgroundColor:'rgb(53 177 225)', color:'white',marginTop:'32px'}}>Search&nbsp;
+  {/* <SearchIcon fontSize='13px'
+/> */}
+</Button>
+</div>
+<CSVLink className="downloadbtn" filename="bookings.csv" data={rows} style={{float: 'right','backgroundColor': 'rgb(53 177 225)','color': 'white','padding': '5px','borderRadius': '10px','marginRight': '17px','marginTop': '32px'}}>
+        <DownloadIcon /> Export to CSV
       </CSVLink>&nbsp;&nbsp;
-          <label htmlFor="search" style={{float:'right',marginRight:'2%', marginTop:'8px'}}>
-            Search by Name: 
-            &nbsp;<input type="text" onChange={handleFilter} style={{outline:'auto'}}/>
-          </label>
           </div>
       <DataTable 
       title="Bookings"
@@ -44,27 +79,29 @@ function Table(){
       onColumnOrderChange={cols => console.log(cols)} 
       pagination
       fixedHeader
+      paginationPerPage={5}
       selectableRows
-      conditionalRowStyles={[
-        {
-          when: (row) => row.status === "Failed",
-          style: {
-            backgroundColor: 'red',
-          },
-        },
-        {
-          when: (row) => row.status === "Paid",
-          style: {
-            backgroundColor: 'green',
-          },
-        },
-        {
-          when: (row) => row.status === "Waiting",
-          style: {
-            backgroundColor: 'yellow',
-          },
-        },
-      ]}   
+      // conditionalRowStyles={[
+      //   {
+      //     if(row.status === "Failed")
+      //     // style: {
+      //     //   backgroundColor: 'red',
+      //     // },
+      //     classNames: ['Error']
+      //   },
+      //   {
+      //     when: (row) => row.status === "Paid",
+      //     style: {
+      //       backgroundColor: 'green',
+      //     },
+      //   },
+      //   {
+      //     when: (row) => row.status === "Waiting",
+      //     style: {
+      //       backgroundColor: 'yellow',
+      //     },
+      //   },
+      // ]}   
           />
       </div>
       </>
