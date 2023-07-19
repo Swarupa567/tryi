@@ -1,3 +1,9 @@
+ <h1>TRYP</h1>
+
+ Aim of this project is to create reusable react component to keep track of all the bookings with all the user data provided while booking a trip with us.
+
+ Link: https://tryi-guib.vercel.app/
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
