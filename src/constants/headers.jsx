@@ -1,9 +1,5 @@
-import { Button, ButtonGroup, Tooltip } from '@chakra-ui/react';
-import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react';
-import Image from 'next/image';
-import fialed from '../../public/no-entry.png';
-import waiting from '../../public/pause.png';
-import paid from '../../public/checked.png';
+import { Tooltip } from '@chakra-ui/react';
+import { Avatar,  AvatarGroup } from '@chakra-ui/react';
 import {  CheckIcon, CloseIcon, TimeIcon, EditIcon, DeleteIcon, ViewIcon, EmailIcon} from '@chakra-ui/icons'
 import { BsPerson } from "react-icons/bs";
 import {BiLogoAirbnb} from 'react-icons/bi';
@@ -21,9 +17,7 @@ export const columns = [
         name: 'Purchase ID',
         selector: rows => rows.purchaseid,
         sortable: true,
-
     },
- 
     {
         name:'Mail',
         selector: rows => rows.mail,
@@ -34,7 +28,6 @@ export const columns = [
             </div>
     }
         ),
-
     },
     {
         name:'Name',
@@ -43,9 +36,8 @@ export const columns = [
         cell:((rows) => {
             return <div style={{display:'flex'}}>  
           <AvatarGroup spacing='1rem'>
-  <Avatar bg='red.500' boxSize='2.15rem' icon={<BsPerson fontSize='0.8rem' />} />
-</AvatarGroup><span style={{ marginTop: '6px',
-    marginLeft: '3px'}}>{rows.name}</span></div>
+              <Avatar bg='red.500' boxSize='2.15rem' icon={<BsPerson fontSize='0.8rem' />} />
+          </AvatarGroup><span style={{ marginTop: '6px', marginLeft: '3px'}}>{rows.name}</span></div>
         })
     },
     {
@@ -56,29 +48,25 @@ export const columns = [
             if(rows.source === "airbnb"){
                 return <div style={{display:'flex'}}>
                 <IconContext.Provider value={{ color: "white", bg:'red', className: "global-class-name" }}>
-            <Avatar boxSize='2.15rem' icon={<BiLogoAirbnb fontSize='0.8rem'/>}/><span style={{ marginTop: '6px',
-    marginLeft: '3px'}}> {rows.source}</span>
-    </IconContext.Provider>
+                    <Avatar boxSize='2.15rem' icon={<BiLogoAirbnb fontSize='0.8rem'/>}/><span style={{ marginTop: '6px',marginLeft: '3px'}}> {rows.source}</span>
+                </IconContext.Provider>
             </div>
             }
             else if (rows.source === "booking"){
                 return <div style={{display:'flex'}}>
                   <IconContext.Provider value={{ color: "white", bg:'red', className: "global-class-name" }}>
-            <Avatar boxSize='2.15rem' icon={<TbBrandBooking fontSize='0.8rem'/>}/><span style={{ marginTop: '6px',
-    marginLeft: '3px'}}> {rows.source}</span>
-    </IconContext.Provider>
+                    <Avatar boxSize='2.15rem' icon={<TbBrandBooking fontSize='0.8rem'/>}/><span style={{ marginTop: '6px',marginLeft: '3px'}}> {rows.source}</span>
+                  </IconContext.Provider>
                 </div>
             }
             else
             return <div style={{display:'flex'}}>
             <IconContext.Provider value={{ color: "white", bg:'red', className: "global-class-name" }}>
-      <Avatar boxSize='2.15rem' icon={<PiDotsSixVerticalThin fontSize='0.8rem'/>}/><span style={{ marginTop: '6px',
-marginLeft: '3px'}}> {rows.source}</span>
-</IconContext.Provider>
+                  <Avatar boxSize='2.15rem' icon={<PiDotsSixVerticalThin fontSize='0.8rem'/>}/><span style={{ marginTop: '6px',marginLeft: '3px'}}> {rows.source}</span>
+            </IconContext.Provider>
           </div>
            
         })
-
     },
     {
         name:'Status',
@@ -157,7 +145,7 @@ marginLeft: '3px'}}> {rows.source}</span>
             						cursor: 'not-allowed',
             					},
             				},
-                        			},
+                        },
 ]
     },
 
@@ -176,5 +164,4 @@ marginLeft: '3px'}}> {rows.source}</span>
     sortable:false,
     cell:() => <Tooltip label='Delete User'><DeleteIcon boxSize={4} color='pink.600'/></Tooltip>
    },
-  
 ];
