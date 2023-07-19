@@ -5,10 +5,12 @@ import  Table  from '../components/dataTable/dataTable';
 import ErrorBoundary from '../pages/_error';
 
 function App() {
+
   return (
     <ChakraProvider>
         <ErrorBoundary>
-        <Table />
+        
+                <Table />
         </ErrorBoundary>
     </ChakraProvider>
   )

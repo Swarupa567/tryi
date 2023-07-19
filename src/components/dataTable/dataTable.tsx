@@ -5,6 +5,8 @@ import {rows} from '../../constants/rows';
 import { CSVLink } from "react-csv";
 import { Input, FormLabel, Select, FormControl, Button } from '@chakra-ui/react';
 import {DownloadIcon, SearchIcon} from '@chakra-ui/icons';
+import '../../styles/dataTable.module.css';
+import {TfiDashboard} from 'react-icons/tfi';
 
 interface rows {
   id: BigInteger,
@@ -26,10 +28,71 @@ function Table(){
    setRecords(newData)
   }
 
+  const getBadge = (status:any) => {
+    switch (status) {
+      case 'Active':
+        return 'success'
+      case 'Inactive':
+        return 'secondary'
+      case 'Pending':
+        return 'warning'
+      case 'Banned':
+        return 'danger'
+      default:
+        return 'primary'
+    }
+  }
+
+  const customStyles= {
+    headRow:{
+      style:{
+        backgroundColor: '#8abae4',
+        borderRadius: '28px',
+        color: 'white',
+      }
+    },
+    header:{
+      cell:() => {
+        return <div>
+          <TfiDashboard /> 
+        </div>
+      },
+      style:{
+        backgroundColor: 'pink',
+        color:'white',
+        borderRadius:'28px',
+        paddingLeft:'41%',
+   }
+    },
+    rows:{
+      style:{
+        borderRadius:'32px',
+        boxShadow:'2px solid',
+        minHeight:'23px',
+        '&:not(:last-of-type)': {
+          borderBottomStyle: 'solid',
+          borderBottomWidth: '2px',
+          // borderBottomColor: theme.divider.default,
+        },
+        denseStyle: {
+			minHeight: '32px',
+		},
+   
+      }
+    },
+    selectedHighlightStyle:{
+      '&:nth-of-type(n)': {
+        backgroundColor: '#8abae4',
+        borderRadius: '28px',
+        color: 'white',
+			},
+    }
+  }
+
     return(
       <>
       <div className="container mt-5">
-        <div className="text-end bg-white" style={{display:'flex',
+        {/* <div className="text-end bg-white" style={{display:'flex',
     borderRadius: '5px',
     border:'2px solid #eeeeee',
     padding: '5px',
@@ -65,43 +128,26 @@ function Table(){
   <Button style={{backgroundColor:'rgb(53 177 225)', color:'white',marginTop:'32px'}}>Search&nbsp;
   {/* <SearchIcon fontSize='13px'
 /> */}
-</Button>
+{/* </Button>
 </div>
 <CSVLink className="downloadbtn" filename="bookings.csv" data={rows} style={{float: 'right','backgroundColor': 'rgb(53 177 225)','color': 'white','padding': '5px','borderRadius': '10px','marginRight': '17px','marginTop': '32px'}}>
         <DownloadIcon /> Export to CSV
       </CSVLink>&nbsp;&nbsp;
-          </div>
+          </div> */} 
       <DataTable 
-      title="Bookings"
+      title="Booking Dashboard"
       columns={columns}
       data={records}
       paginationRowsPerPageOptions={[5, 10, 15, 25, 50]}
       onColumnOrderChange={cols => console.log(cols)} 
       pagination
       fixedHeader
-      paginationPerPage={5}
+      fixedHeaderScrollHeight={'50'}
       selectableRows
-      // conditionalRowStyles={[
-      //   {
-      //     if(row.status === "Failed")
-      //     // style: {
-      //     //   backgroundColor: 'red',
-      //     // },
-      //     classNames: ['Error']
-      //   },
-      //   {
-      //     when: (row) => row.status === "Paid",
-      //     style: {
-      //       backgroundColor: 'green',
-      //     },
-      //   },
-      //   {
-      //     when: (row) => row.status === "Waiting",
-      //     style: {
-      //       backgroundColor: 'yellow',
-      //     },
-      //   },
-      // ]}   
+      paginationPerPage={5}
+      responsive
+       customStyles={customStyles}
+       striped
           />
       </div>
       </>

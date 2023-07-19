@@ -27,6 +27,7 @@
     "react-data-table-component": "^7.5.3",
     "react-data-table-component-extensions": "^1.6.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
     "styled-components": "^6.0.4",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
