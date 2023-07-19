@@ -159,52 +159,22 @@ marginLeft: '3px'}}> {rows.source}</span>
             				},
                         			},
 ]
-
-    //    cell: (row) => {
-    //     when: (row) => row.status === "Failed",
-    //     style = {backgroundColor:'red'}
-    //     // if(row.status === "Failed"){
-    //     //     style = {backgroundColor:'red'}
-    //     // }
-    // //     else if (row.status === "Waiting"){
-    // //         style = {
-    // //             backgroundColor:'yellow'
-    // //         }
-    // //     }
-    // //     else
-    // //      style= {backgroundColor: 'green'}
-    //    }
     },
-    // {
-    //    name: 'Select',
-    //    selector: rows => rows.select,
-    //    sortable: true,
-    //    cell: (row) => (
-    //     <Button>
-    //         Select
-    //     </Button>
-    // ),
-    // }
-    // {
-    //     name:'',
-    //     sortable:false,
-    //     cell: () => <Button variant="danger" data-tag="allowRowEvents" data-action="delete"><FontAwesomeIcon icon={faTrash} /></Button>,
 
-    // }
     {
         name:'',
         sortable:false,
-        cell:() => <Tooltip label="Details"><ViewIcon boxSize={6}/></Tooltip>
+        cell:() => <Tooltip label="Details"><ViewIcon boxSize={5}/></Tooltip>
    },
    {
     name:'',
     sortable:false,
-    cell:() => <Tooltip label='Edit User'><EditIcon boxSize={6}/></Tooltip>
+    cell:() => <Tooltip label='Edit User'><EditIcon boxSize={5}/></Tooltip>
    },
    {
     name:'',
     sortable:false,
-    cell:() => <Tooltip label='Delete User'><DeleteIcon boxSize={6} color='pink.600'/></Tooltip>
+    cell:() => <Tooltip label='Delete User'><DeleteIcon boxSize={5} color='pink.600'/></Tooltip>
    },
   
 ];
