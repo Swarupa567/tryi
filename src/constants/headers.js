@@ -43,8 +43,8 @@ export const columns = [
         cell:((rows) => {
             return <div style={{display:'flex'}}>  
           <AvatarGroup spacing='1rem'>
-  <Avatar bg='red.500' icon={<BsPerson fontSize='1rem' />} />
-</AvatarGroup><span style={{ marginTop: '12px',
+  <Avatar bg='red.500' boxSize='2.15rem' icon={<BsPerson fontSize='0.8rem' />} />
+</AvatarGroup><span style={{ marginTop: '6px',
     marginLeft: '3px'}}>{rows.name}</span></div>
         })
     },
@@ -56,7 +56,7 @@ export const columns = [
             if(rows.source === "airbnb"){
                 return <div style={{display:'flex'}}>
                 <IconContext.Provider value={{ color: "white", bg:'red', className: "global-class-name" }}>
-            <Avatar icon={<BiLogoAirbnb fontSize='1rem'/>}/><span style={{ marginTop: '12px',
+            <Avatar boxSize='2.15rem' icon={<BiLogoAirbnb fontSize='0.8rem'/>}/><span style={{ marginTop: '6px',
     marginLeft: '3px'}}> {rows.source}</span>
     </IconContext.Provider>
             </div>
@@ -64,7 +64,7 @@ export const columns = [
             else if (rows.source === "booking"){
                 return <div style={{display:'flex'}}>
                   <IconContext.Provider value={{ color: "white", bg:'red', className: "global-class-name" }}>
-            <Avatar icon={<TbBrandBooking fontSize='1rem'/>}/><span style={{ marginTop: '12px',
+            <Avatar boxSize='2.15rem' icon={<TbBrandBooking fontSize='0.8rem'/>}/><span style={{ marginTop: '6px',
     marginLeft: '3px'}}> {rows.source}</span>
     </IconContext.Provider>
                 </div>
@@ -72,7 +72,7 @@ export const columns = [
             else
             return <div style={{display:'flex'}}>
             <IconContext.Provider value={{ color: "white", bg:'red', className: "global-class-name" }}>
-      <Avatar icon={<PiDotsSixVerticalThin fontSize='1rem'/>}/><span style={{ marginTop: '12px',
+      <Avatar boxSize='2.15rem' icon={<PiDotsSixVerticalThin fontSize='0.8rem'/>}/><span style={{ marginTop: '6px',
 marginLeft: '3px'}}> {rows.source}</span>
 </IconContext.Provider>
           </div>
@@ -89,7 +89,7 @@ marginLeft: '3px'}}> {rows.source}</span>
             if(rows.status === "Failed"){
             return <div>
                     <>
-                     <CheckIcon />
+                     <CloseIcon />
                    <span style={{ marginTop: '12px',marginLeft: '3px'}}>
                       {rows.status}
                   </span>
@@ -109,7 +109,7 @@ marginLeft: '3px'}}> {rows.source}</span>
                 else 
                 return <div>
                 <>
-                <CloseIcon />
+                <CheckIcon />
                 <span style={{ marginTop: '12px',marginLeft: '3px'}}>
                     {rows.status}
                 </span>
@@ -164,17 +164,17 @@ marginLeft: '3px'}}> {rows.source}</span>
     {
         name:'',
         sortable:false,
-        cell:() => <Tooltip label="Details"><ViewIcon boxSize={5}/></Tooltip>
+        cell:() => <Tooltip label="Details"><ViewIcon boxSize={4}/></Tooltip>
    },
    {
     name:'',
     sortable:false,
-    cell:() => <Tooltip label='Edit User'><EditIcon boxSize={5}/></Tooltip>
+    cell:() => <Tooltip label='Edit User'><EditIcon boxSize={4}/></Tooltip>
    },
    {
     name:'',
     sortable:false,
-    cell:() => <Tooltip label='Delete User'><DeleteIcon boxSize={5} color='pink.600'/></Tooltip>
+    cell:() => <Tooltip label='Delete User'><DeleteIcon boxSize={4} color='pink.600'/></Tooltip>
    },
   
 ];
